@@ -1,7 +1,5 @@
 import fs from 'fs';
 
-const ascending = [];
-
 let result = -1;
 let result2 = -1;
 let result3 = -1;
@@ -53,9 +51,10 @@ function findCounterpart(ascending, target) {
 }
 
 function readInputFileAsSortedIntList() {
+    const ascending = [];
     const input = fs.readFileSync('input.txt', 'utf8');
     input.split('\n').forEach( line => {
         ascending.push(parseInt(line));
     });
-     return ascending.sort();
+    return ascending.sort();
 }
