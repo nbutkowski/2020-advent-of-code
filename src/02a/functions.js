@@ -13,7 +13,7 @@ function solver(file) {
             const policy_max = policy.substring(policy.indexOf('-')+1, policy.indexOf(' '));
             const policy_char = policy.substring(policy.indexOf(' ')+1);
 
-            const occurances = pw.length - pw.replace(new RegExp(policy_char, 'g'), '').length
+            const occurances = pw.length - pw.replace(new RegExp(policy_char, 'g'), '').length;
             if (occurances <= policy_max &&  occurances >=policy_min) {
                 validPasswords++;
             }
@@ -23,7 +23,7 @@ function solver(file) {
             throw('there\'s probably at least one valid pw in the list...');
         }
 
-       return validPasswords;
+        return validPasswords;
     } catch (err) {
         console.error(err);
     }
@@ -40,7 +40,7 @@ function readInputFile(file) {
         throw('error reading input: ', result.length);
     }
 
-     return result;
+    return result;
 }
 
 export { solver, readInputFile };

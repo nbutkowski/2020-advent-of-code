@@ -8,13 +8,12 @@ function solver(inputFile) {
     const year = 2020;
     
     try {
-        const fileLocation = process.argv[2]
         const sortedList = readInputFileAsSortedIntList(inputFile);
         
         sortedList.forEach((alpha) => {
             const sublist = sortedList.filter(x => x > alpha);
             if(sublist.includes(alpha)) {
-               throw ('wtf - this shouldn\t happen....'); 
+                throw ('wtf - this shouldn\t happen....'); 
             }
             const candidate = findCounterpart(sublist, year-alpha);
             if (candidate > -1) {
@@ -48,7 +47,7 @@ function findCounterpart(ascending, target) {
             result = alpha;
             return result;
         }
-    })
+    });
     return result; 
 }
 

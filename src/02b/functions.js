@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { readInputFile } from '../02a/functions.js';
 
 function solver(file) {
@@ -39,7 +38,7 @@ function solver(file) {
 }
 
 function evaluatePw(a, b, c) {
-    return (a == c && b != c) || (a != c && b == c)
+    return (a == c && b != c) || (a != c && b == c);
 }
 
 export { solver };

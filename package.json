@@ -1,6 +1,8 @@
 {
   "name": "2020-advent-of-code",
   "scripts": {
+    "check": "npm run eslint",
+    "eslint": "eslint src/*/*.js",
     "it": "./run.sh",
     "test": "./test.sh"
   },
@@ -11,5 +13,8 @@
   "homepage": "https://github.com/nbutkowski/2020-advent-of-code#readme",
   "dependencies": {
     "mocha": "^8.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0"
   }
 }

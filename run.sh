@@ -1,4 +1,4 @@
 #!/bin/bash
 
 dir=$1
-node "$PWD/$dir/index.js" "$PWD/$dir/input.txt"
+node "$PWD/src/$dir/index.js" "$PWD/src/$dir/input.txt"
