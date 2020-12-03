@@ -1,26 +1,6 @@
-import fs from 'fs';
+import { solver } from './functions.js';
 
-const ascending = [];
-
-let result = -1;
-
-const target = 2020;
-
-try {
-    const input = fs.readFileSync('input.txt', 'utf8');
-    input.split('\n').forEach( line => {
-        ascending.push(parseInt(line));
-    })
-
-    ascending.sort();
-     
-    ascending.forEach( alpha => {
-        const omega = target - alpha;
-        if(ascending.includes(omega)) {
-            result = alpha;
-        }
-    }) 
-    console.log(result * (target - result));
-} catch (err) {
-    console.error(err);
+const inputFile = process.argv[2]
+if (inputFile) {
+    console.log(solver(inputFile));
 }
