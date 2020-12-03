@@ -1,8 +1,3 @@
 {
-  "name": "01a",
-  "main": "index.js",
-  "scripts": {
-    "it": "node index.js"	  
-  },
   "type": "module"
 }
