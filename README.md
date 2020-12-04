@@ -3,7 +3,6 @@
 Install nvm: https://github.com/nvm-sh/nvm/blob/master/README.md
 `nvm use`
 
-
 ## Run solution
 `npm run it -- {{exercise_dir}}`
 
