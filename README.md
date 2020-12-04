@@ -5,11 +5,12 @@ Install nvm: https://github.com/nvm-sh/nvm/blob/master/README.md
 
 
 ## Run solution
-`npm run -- {{exercise_dir}}`
+`npm run it -- {{exercise_dir}}`
 
-Needs `input.txt` for input file and entrypoint of `index.js`
 
 ## Test solution
-`npm test -- {{exercise_dir}}`
+`npm run test -- {{exercise_dir}}`
 
-Needs `test.js` as entry point
+## Setup Notes
+* `run test` Needs `test.js` as entry point.
+* `run it` Needs `input.txt` for input file and entrypoint of `index.js`
