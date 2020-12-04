@@ -12,12 +12,5 @@ if (inputFile) {
         {x:1, y:2}
     ];
 
-    let total = 1;
-
-    slopes.forEach( slope => {
-        const result = solver(map, slope.x, slope.y);
-        total *= result;
-    });
-
-    console.log(total);
+    console.log(slopes.reduce((total, slope) => total*solver(map, slope.x, slope.y), 1));
 }
