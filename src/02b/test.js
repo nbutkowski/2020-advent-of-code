@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { solver } from './functions.js';
+import {solver} from './functions.js';
 
 const inputFile = process.env.input;
 

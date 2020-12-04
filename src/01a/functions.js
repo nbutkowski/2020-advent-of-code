@@ -4,18 +4,18 @@ function solver(inputFile) {
     const ascending = [];
     let result = -1;
     const target = 2020;
-    
+
     try {
         const input = fs.readFileSync(inputFile, 'utf8');
-        input.split('\n').forEach( line => {
+        input.split('\n').forEach( (line) => {
             ascending.push(parseInt(line));
         });
-    
+
         ascending.sort();
-         
-        ascending.forEach( alpha => {
+
+        ascending.forEach( (alpha) => {
             const omega = target - alpha;
-            if(ascending.includes(omega)) {
+            if (ascending.includes(omega)) {
                 result = alpha;
             }
         });
@@ -25,4 +25,4 @@ function solver(inputFile) {
     }
 }
 
-export { solver };
+export {solver};

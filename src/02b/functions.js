@@ -1,34 +1,36 @@
-import { readInputFile } from '../02a/functions.js';
+import {readInputFile} from '../02a/functions.js';
 
 function solver(file) {
-
     let validPasswords = 0;
 
     try {
         const pwList = readInputFile(file);
 
-        pwList.forEach( row => {
+        pwList.forEach( (row) => {
             const policy = row.substring(0, row.indexOf(':'));
             const pw = row.substring(row.indexOf(':')+2);
 
-            const policy_first_position = parseInt(policy.substring(0, policy.indexOf('-')))-1;
-            const policy_second_position = parseInt(policy.substring(policy.indexOf('-')+1, policy.indexOf(' ')))-1;
-            const policy_char = policy.substring(policy.indexOf(' ')+1);
+            const policyFirstPosition = parseInt(
+                policy.substring(0, policy.indexOf('-')))-1;
+            const policySecondPosition = parseInt(
+                policy.substring(policy.indexOf('-')+1, policy.indexOf(' ')))-1;
+            const policyChar = policy.substring(policy.indexOf(' ')+1);
 
-            if(policy_first_position < 0 || policy_second_position < 0) {
-                throw ('wtf');
+            if (policyFirstPosition < 0 || policySecondPosition < 0) {
+                throw new Error('wtf');
             }
 
-            const first_character = pw.charAt(policy_first_position);
-            const second_character = pw.charAt(policy_second_position);
+            const firstCharacter = pw.charAt(policyFirstPosition);
+            const secondCharacter = pw.charAt(policySecondPosition);
 
-            if (evaluatePw(first_character, second_character, policy_char)) {
+            if (evaluatePw(firstCharacter, secondCharacter, policyChar)) {
                 validPasswords++;
             }
         });
 
-        if(validPasswords == -1) {
-            throw('there\'s probably at least one valid pw in the list...');
+        if (validPasswords == -1) {
+            // eslint-disable-next-line max-len
+            throw new Error('there\'s probably at least one valid pw in the list...');
         }
 
         return validPasswords;
@@ -41,4 +43,4 @@ function evaluatePw(a, b, c) {
     return (a == c && b != c) || (a != c && b == c);
 }
 
-export { solver };
+export {solver};

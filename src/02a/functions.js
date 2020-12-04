@@ -5,22 +5,25 @@ function solver(file) {
 
     try {
         const pwList = readInputFile(file);
-        pwList.forEach( row => {
+        pwList.forEach( (row) => {
             const policy = row.substring(0, row.indexOf(':'));
             const pw = row.substring(row.indexOf(':')+2);
 
-            const policy_min = policy.substring(0, policy.indexOf('-'));
-            const policy_max = policy.substring(policy.indexOf('-')+1, policy.indexOf(' '));
-            const policy_char = policy.substring(policy.indexOf(' ')+1);
+            const policyMin = policy.substring(0, policy.indexOf('-'));
+            const policyMax = policy.substring(
+                policy.indexOf('-')+1, policy.indexOf(' '));
+            const policyChar = policy.substring(policy.indexOf(' ')+1);
 
-            const occurances = pw.length - pw.replace(new RegExp(policy_char, 'g'), '').length;
-            if (occurances <= policy_max &&  occurances >=policy_min) {
+            const occurances = pw.length - pw.replace(
+                new RegExp(policyChar, 'g'), '').length;
+
+            if (occurances <= policyMax && occurances >=policyMin) {
                 validPasswords++;
             }
         });
 
-        if(validPasswords == -1) {
-            throw('there\'s probably at least one valid pw in the list...');
+        if (validPasswords == -1) {
+            throw new Error('there\'s at least one valid pw in the list...');
         }
 
         return validPasswords;
@@ -32,15 +35,15 @@ function solver(file) {
 function readInputFile(file) {
     const result = [];
     const input = fs.readFileSync(file, 'utf8');
-    input.split('\n').forEach( line => {
+    input.split('\n').forEach( (line) => {
         result.push(line);
     });
 
     if (result.length < 1) {
-        throw('error reading input: ', result.length);
+        throw ('error reading input: ', result.length);
     }
 
     return result;
 }
 
-export { solver, readInputFile };
+export {solver, readInputFile};

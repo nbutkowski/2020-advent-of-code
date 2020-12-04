@@ -5,9 +5,9 @@ function solver(map, xSlope, ySlope) {
     let x = 0;
     let y = 0;
     const height = getHeight(map);
-    for(let i=0; i<height; i++) {
+    for (let i=0; i<height; i++) {
         const spot = getTerrain(x, y, map);
-        if(spot == TREE) {
+        if (spot == TREE) {
             treeCount++;
         }
         x += xSlope;
@@ -19,7 +19,7 @@ function solver(map, xSlope, ySlope) {
 
 function getTerrain(x, y, map) {
     const horizontal = x % getWidth(map);
-    const vertical =  y * (getWidth(map)+1);
+    const vertical = y * (getWidth(map)+1);
     return map.charAt(horizontal + vertical);
 }
 
@@ -31,4 +31,4 @@ function getWidth(map) {
     return map.indexOf('\n');
 }
 
-export { solver, getTerrain, getHeight, getWidth};
+export {solver, getTerrain, getHeight, getWidth};
