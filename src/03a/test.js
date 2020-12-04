@@ -1,5 +1,5 @@
 import assert from 'assert';
-import should from 'should';
+import should from 'should'; //eslint-disable-line no-unused-vars
 import { solver, getTerrain, getHeight, getWidth } from './functions.js';
 
 const example = 
