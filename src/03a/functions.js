@@ -10,8 +10,8 @@ function solver(map) {
         if(spot == TREE) {
             treeCount++;
         }
-        x = x+3;
-        y = y+1;
+        x += 3;
+        y += 1;
     }
 
     return treeCount;

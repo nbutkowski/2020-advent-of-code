@@ -10,8 +10,8 @@ function solver(map, xSlope, ySlope) {
         if(spot == TREE) {
             treeCount++;
         }
-        x = x+xSlope;
-        y = y+ySlope;
+        x += xSlope;
+        y += ySlope;
     }
 
     return treeCount;
