@@ -4,8 +4,9 @@
   "scripts": {
     "check": "npm run eslint",
     "eslint": "eslint src/*/*.js",
-    "it": "./run.sh",
-    "test": "./test.sh"
+    "it": "sh scripts/run.sh",
+    "setup": "sh scripts/setup.sh",
+    "test": "sh scripts/test.sh"
   },
   "repository": {
     "type": "git",
