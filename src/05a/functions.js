@@ -11,20 +11,21 @@ function deserializeBarcode(barcode) {
 }
 
 function binaryCrawl(min, max, binary) {
-    let range;
-    let target;
-    do {
-        range = (max+min) / 2;
-        if (binary.charAt(0) == 1) {
-            max = Math.floor(range);
-            target = max;
-        } else {
-            min = Math.ceil(range);
-            target = min;
+    const avg = (max+min) / 2;
+
+    if (binary.charAt(0) == 1) {
+        max = Math.floor(avg);
+        if (binary.length == 0) {
+            return max;
         }
-        binary = binary.substring(1, binary.length);
-    } while (binary.length > 0);
-    return target;
+    } else {
+        min = Math.ceil(avg);
+        if (binary.length == 0) {
+            return min;
+        }
+    }
+
+    return binaryCrawl(min, max, binary.substring(1, binary.length));
 }
 
 function toBinaryString(text, flag) {
