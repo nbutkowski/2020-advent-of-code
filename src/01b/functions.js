@@ -10,7 +10,7 @@ function solver(file) {
 
     try {
         const sortedList = readInputFile(file, '\n').map((line) => parseInt(line)).sort();
-        
+
         sortedList.forEach((alpha) => {
             const sublist = sortedList.filter((x) => x > alpha);
             if (sublist.includes(alpha)) {
