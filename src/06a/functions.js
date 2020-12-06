@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 
-function countUniqueChars(input) {
-    return [...removeNewline(input)].reduce((uniqueChars, char) => !uniqueChars.includes(char) ? uniqueChars += char : uniqueChars, '').length;
+function findUniqueChars(input) {
+    return [...input].reduce((findUniqueChars, char) => !findUniqueChars.includes(char) ? findUniqueChars += char : findUniqueChars, '');
 }
 
 function removeNewline(input) {
     return input.replace(/\n/g, '');
 }
 
-export {countUniqueChars};
+export {removeNewline, findUniqueChars};
