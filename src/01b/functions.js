@@ -1,6 +1,7 @@
-import fs from 'fs';
+/* eslint-disable max-len */
+import {readInputFile} from '../common.js';
 
-function solver(inputFile) {
+function solver(file) {
     let result = -1;
     let result2 = -1;
     let result3 = -1;
@@ -8,8 +9,8 @@ function solver(inputFile) {
     const year = 2020;
 
     try {
-        const sortedList = readInputFileAsSortedIntList(inputFile);
-
+        const sortedList = readInputFile(file, '\n').map((line) => parseInt(line)).sort();
+        
         sortedList.forEach((alpha) => {
             const sublist = sortedList.filter((x) => x > alpha);
             if (sublist.includes(alpha)) {
@@ -49,15 +50,6 @@ function findCounterpart(ascending, target) {
         }
     });
     return result;
-}
-
-function readInputFileAsSortedIntList(fileLocation) {
-    const ascending = [];
-    const input = fs.readFileSync(fileLocation, 'utf8');
-    input.split('\n').forEach( (line) => {
-        ascending.push(parseInt(line));
-    });
-    return ascending.sort();
 }
 
 export {solver};

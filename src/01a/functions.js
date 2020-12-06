@@ -1,17 +1,13 @@
-import fs from 'fs';
+/* eslint-disable max-len */
+import {readInputFile} from '../common.js';
 
-function solver(inputFile) {
-    const ascending = [];
+function solver(file) {
+    let ascending = [];
     let result = -1;
     const target = 2020;
 
     try {
-        const input = fs.readFileSync(inputFile, 'utf8');
-        input.split('\n').forEach( (line) => {
-            ascending.push(parseInt(line));
-        });
-
-        ascending.sort();
+        ascending = readInputFile(file, '\n').map((line) => parseInt(line)).sort();
 
         ascending.forEach( (alpha) => {
             const omega = target - alpha;
