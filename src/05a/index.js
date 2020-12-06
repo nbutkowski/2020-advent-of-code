@@ -1,17 +1,16 @@
-import fs from 'fs';
+/* eslint-disable max-len */
+import {readInputFile} from '../common.js';
 import {deserializeBarcode} from './functions.js';
 
-const inputFile = process.argv[2];
+const file = process.argv[2];
 
-if (inputFile) {
-    const data = fs.readFileSync(inputFile, 'utf8');
-    let max=-1;
-    data.split('\n').forEach((datum) => {
+if (file) {
+    const result = readInputFile(file, '\n').reduce((max, datum) => {
+        console.log(`${typeof max} ${max}`);
         const boardingPass = deserializeBarcode(datum);
-        if (boardingPass.seatId > max) {
-            max = boardingPass.seatId;
-        };
-    });
-    console.log(max);
+        return (boardingPass.seatId > max) ? boardingPass.seatId : max;
+    }, 0);
+
+    console.log(result);
 }
 

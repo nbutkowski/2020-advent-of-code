@@ -1,10 +1,10 @@
-import {readInputFile} from '../02a/functions.js';
+import {readInputFile} from '../common.js';
 
 function solver(file) {
     let validPasswords = 0;
 
     try {
-        const pwList = readInputFile(file);
+        const pwList = readInputFile(file, '\n');
 
         pwList.forEach( (row) => {
             const policy = row.substring(0, row.indexOf(':'));

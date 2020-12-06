@@ -1,10 +1,10 @@
-import fs from 'fs';
+import {readInputFile} from '../common.js';
 
 function solver(file) {
     let validPasswords = -1;
 
     try {
-        const pwList = readInputFile(file);
+        const pwList = readInputFile(file, '\n');
         pwList.forEach( (row) => {
             const policy = row.substring(0, row.indexOf(':'));
             const pw = row.substring(row.indexOf(':')+2);
@@ -32,18 +32,4 @@ function solver(file) {
     }
 }
 
-function readInputFile(file) {
-    const result = [];
-    const input = fs.readFileSync(file, 'utf8');
-    input.split('\n').forEach( (line) => {
-        result.push(line);
-    });
-
-    if (result.length < 1) {
-        throw ('error reading input: ', result.length);
-    }
-
-    return result;
-}
-
-export {solver, readInputFile};
+export {solver};
